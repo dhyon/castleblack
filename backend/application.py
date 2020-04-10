@@ -26,4 +26,4 @@ def json_response(payload, status=200):
 
 
 if __name__ == "__main__":
-    application.run()
+    application.run(host='0.0.0.0')
