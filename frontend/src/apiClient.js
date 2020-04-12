@@ -1,9 +1,14 @@
 import axios from 'axios';
 
-const BASE_URI = 'https://danielhyon.com';
+var baseURI;
+if (process.env.REACT_APP_DEV) {
+  baseURI= 'http://localhost:5000';
+} else {
+  baseURI = process.env.REACT_APP_BASE_URL;
+}
 
 const client = axios.create({
-  baseURL: BASE_URI,
+  baseURL: baseURI,
   json: true
 });
 

@@ -29,13 +29,13 @@ import ProfilePage from "views/examples/ProfilePage.jsx";
 ReactDOM.render(
   <BrowserRouter>
     <Switch>
-      <Route path="/profile"
+      <Route path="/home"
              render={props => <ProfilePage {...props} />}
       />
-      <Route path="/sections"
+      <Route path="/interests"
              render={props => <Index {...props} />}
       />
-      <Redirect from="/" to="/profile"/>
+      <Redirect from="/" to="/home"/>
     </Switch>
   </BrowserRouter>,
   document.getElementById("root")

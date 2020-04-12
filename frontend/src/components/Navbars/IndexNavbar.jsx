@@ -16,12 +16,10 @@
 
 */
 import React from "react";
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 // reactstrap components
 import {
   Collapse,
-  DropdownToggle,
-  DropdownMenu,
   DropdownItem,
   UncontrolledDropdown,
   NavbarBrand,
@@ -40,12 +38,15 @@ class ComponentsNavbar extends React.Component {
       color: "navbar-transparent"
     };
   }
+
   componentDidMount() {
     window.addEventListener("scroll", this.changeColor);
   }
+
   componentWillUnmount() {
     window.removeEventListener("scroll", this.changeColor);
   }
+
   changeColor = () => {
     if (
       document.documentElement.scrollTop > 99 ||
@@ -82,8 +83,9 @@ class ComponentsNavbar extends React.Component {
   scrollToBottom = () => {
     document
       .getElementById("download-section")
-      .scrollIntoView({ behavior: "smooth" });
+      .scrollIntoView({behavior: "smooth"});
   };
+
   render() {
     return (
       <Navbar
@@ -100,16 +102,16 @@ class ComponentsNavbar extends React.Component {
               title="Designed and Coded by Creative Tim"
               tag={Link}
             >
-              <span>현지훈• Daniel Hyon</span>
+              <span>Daniel Hyon • 현지훈 </span>
             </NavbarBrand>
             <button
               aria-expanded={this.state.collapseOpen}
               className="navbar-toggler navbar-toggler"
               onClick={this.toggleCollapse}
             >
-              <span className="navbar-toggler-bar bar1" />
-              <span className="navbar-toggler-bar bar2" />
-              <span className="navbar-toggler-bar bar3" />
+              <span className="navbar-toggler-bar bar1"/>
+              <span className="navbar-toggler-bar bar2"/>
+              <span className="navbar-toggler-bar bar3"/>
             </button>
           </div>
           <Collapse
@@ -122,9 +124,6 @@ class ComponentsNavbar extends React.Component {
             <div className="navbar-collapse-header">
               <Row>
                 <Col className="collapse-brand" xs="6">
-                  <a href="#pablo" onClick={e => e.preventDefault()}>
-                    CastleBlack v0
-                  </a>
                 </Col>
                 <Col className="collapse-close text-right" xs="6">
                   <button
@@ -132,34 +131,21 @@ class ComponentsNavbar extends React.Component {
                     className="navbar-toggler"
                     onClick={this.toggleCollapse}
                   >
-                    <i className="tim-icons icon-simple-remove" />
+                    <i className="tim-icons icon-simple-remove"/>
                   </button>
                 </Col>
               </Row>
             </div>
             <Nav navbar>
               <UncontrolledDropdown nav>
-                <DropdownToggle
-                  caret
-                  color="default"
-                  data-toggle="dropdown"
-                  href="#pablo"
-                  nav
-                  onClick={e => e.preventDefault()}
-                >
-                  <i className="fa fa-cogs d-lg-none d-xl-none" />
-                  Menu
-                </DropdownToggle>
-                <DropdownMenu className="dropdown-with-icons">
-                  <DropdownItem tag={Link} to="/home">
-                    <i className="tim-icons icon-single-02" />
-                    Profile
-                  </DropdownItem>
-                  <DropdownItem tag={Link} to="/sections">
-                    <i className="tim-icons icon-image-02" />
-                    Sections
-                  </DropdownItem>
-                </DropdownMenu>
+                <DropdownItem tag={Link} to="/">
+                  <i className="tim-icons icon-single-02"/>
+                  Home
+                </DropdownItem>
+                <DropdownItem tag={Link} to="/interests">
+                  <i className="tim-icons icon-image-02"/>
+                  Interests
+                </DropdownItem>
               </UncontrolledDropdown>
             </Nav>
           </Collapse>

@@ -110,7 +110,6 @@ class Film extends React.Component {
                  </div>
                 </TabPane>
                 <TabPane tabId="link6">
-
                 </TabPane>
               </TabContent>
             </CardBody>

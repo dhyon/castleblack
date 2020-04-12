@@ -68,6 +68,7 @@ class ProfilePage extends React.Component {
       tabs: 1
     };
   }
+
   componentDidMount() {
     if (navigator.platform.indexOf("Win") > -1) {
       document.documentElement.className += " perfect-scrollbar-on";
@@ -79,6 +80,7 @@ class ProfilePage extends React.Component {
     }
     document.body.classList.toggle("profile-page");
   }
+
   componentWillUnmount() {
     if (navigator.platform.indexOf("Win") > -1) {
       ps.destroy();
@@ -87,86 +89,80 @@ class ProfilePage extends React.Component {
     }
     document.body.classList.toggle("profile-page");
   }
+
   toggleTabs = (e, stateName, index) => {
     e.preventDefault();
     this.setState({
       [stateName]: index
     });
   };
+
   render() {
     return (
       <>
-        <IndexNavbar />
+        <IndexNavbar/>
         <div className="wrapper">
+          <img
+            alt="..."
+            className="path"
+            src={require("assets/img/path4.png")}
+          />
           <div className="page-header">
             <img
               alt="..."
               className="dots"
               src={require("assets/img/dots.png")}
             />
-            <img
-              alt="..."
-              className="path"
-              src={require("assets/img/path4.png")}
-            />
             <Container className="align-items-center">
               <Row>
-                <Col lg="6" md="6">
-                  <h1 className="profile-title text-left">the best website ever</h1>
-                  <h5 className="text-on-back">Simply</h5>
-                  <p className="profile-description">
-                    Just a tight little app I put together using Flask for server functionality and React for the frontend.
-                    Credit to <a href='https://www.creative-tim.com/'>Creative Tim</a> for providing dope free React components for personal use.
-                  </p>
-                  <div className="btn-wrapper profile pt-3">
-                    <Button
-                      className="btn-icon btn-round"
-                      color=""
-                      href="https://www.linkedin.com/in/dhyon88"
-                      id="tooltip982846144"
-                      target="_blank"
-                    >
-                      <i className="fab fa-linkedin" />
-                    </Button>
-                    <UncontrolledTooltip delay={0} target="tooltip982846144">
-                      LinkedIn
-                    </UncontrolledTooltip>
-
-                    <Button
-                      className="btn-icon btn-round"
-                      color="github"
-                      href="https://github.com/dhyon"
-                      id="tooltip639225725"
-                      target="_blank"
-                    >
-                      <i className="fab fa-github" />
-                    </Button>
-                    <UncontrolledTooltip delay={0} target="tooltip639225725">
-                      Github
-                    </UncontrolledTooltip>
-
-                    <Button
-                      className="btn-icon btn-round"
-                      color="facebook"
-                      href="https://www.facebook.com/daniel.hyon"
-                      id="tooltip982846143"
-                      target="_blank"
-                    >
-                      <i className="fab fa-facebook-square" />
-                    </Button>
-                    <UncontrolledTooltip delay={0} target="tooltip982846143">
-                      Facebook
-                    </UncontrolledTooltip>
-                  </div>
-                </Col>
-                <Col className="ml-auto mr-auto" lg="6" md="6">
+                <Col className="ml-auto mr-auto" lg="8" md="6">
                   <Card className="card-coin card-plain">
                     <CardHeader>
                       <img
                         alt="..."
-                        className="img-center img-fluid rounded-circle"
+                        className="img-center img-fluid rounded"
                         src={require("assets/img/danny3.jpg")}
                       />
+                      <div className="btn-wrapper profile pt-3">
+                        <Button
+                          className="btn-icon btn-round"
+                          color=""
+                          href="https://www.linkedin.com/in/dhyon88"
+                          id="tooltip982846144"
+                          target="_blank"
+                        >
+                          <i className="fab fa-linkedin"/>
+                        </Button>
+                        <UncontrolledTooltip delay={0} target="tooltip982846144">
+                          LinkedIn
+                        </UncontrolledTooltip>
+
+                        <Button
+                          className="btn-icon btn-round"
+                          color="github"
+                          href="https://github.com/dhyon"
+                          id="tooltip639225725"
+                          target="_blank"
+                        >
+                          <i className="fab fa-github"/>
+                        </Button>
+                        <UncontrolledTooltip delay={0} target="tooltip639225725">
+                          Github
+                        </UncontrolledTooltip>
+
+                        <Button
+                          className="btn-icon btn-round"
+                          color="facebook"
+                          href="https://www.facebook.com/daniel.hyon"
+                          id="tooltip982846143"
+                          target="_blank"
+                        >
+                          <i className="fab fa-facebook-square"/>
+                        </Button>
+                        <UncontrolledTooltip delay={0} target="tooltip982846143">
+                          Facebook
+                        </UncontrolledTooltip>
+                      </div>
                     </CardHeader>
                     <CardBody>
                       <Nav
@@ -192,7 +188,7 @@ class ProfilePage extends React.Component {
                             onClick={e => this.toggleTabs(e, "tabs", 2)}
                             href="#pablo"
                           >
-                            Hobbyist
+                            Personal
                           </NavLink>
                         </NavItem>
                         <NavItem>
@@ -212,22 +208,36 @@ class ProfilePage extends React.Component {
                         activeTab={"tab" + this.state.tabs}
                       >
                         <TabPane tabId="tab1">
-                          I'm a <a href='https://www.linkedin.com/in/dhyon88'>backend software engineer</a> living in San Francisco.<br></br><br></br>
-                          I'm currently building Scala applications that bring healthcare incentives to the consumer at <a href="https://www.rallyhealth.com/the-rally-experience#reward">Rally Health</a>.<br></br><br></br>
+                          <p class="text-info">
+                          I'm a <a href='https://www.linkedin.com/in/dhyon88'>backend software engineer</a> living in
+                          San Francisco.<br></br><br></br>
+                          I'm currently building Scala applications that bring healthcare incentives to the consumer
+                          at <a href="https://www.rallyhealth.com/the-rally-experience#reward">Rally
+                          Health</a>.<br></br><br></br>
                           I'm big believer in writing concise, modular, and easy-to-read code.<br></br><br></br>
-                          Anything to do with scale, decentralized apps, and blockchain - especially <a href="https://github.com/spacemeshos/go-spacemesh">spacemesh</a> - pique my interest nowadays.<br></br>
+                          Anything to do with scale, decentralized apps, and blockchain - especially <a
+                          href="https://github.com/spacemeshos/go-spacemesh">spacemesh</a> - pique my interest nowadays.<br></br><br></br>
+                          </p>
                         </TabPane>
                         <TabPane tabId="tab2">
-                          I wrestled in high school and have been training combat sports like MMA, Brazilian Jiu Jitsu and boxing ever since, injuries permitting.<br></br><br></br>
+                          <p className="text-info">
+                          I wrestled in high school and have been training combat sports like MMA, Brazilian Jiu Jitsu
+                          and boxing ever since, injuries permitting.<br></br><br></br>
                           I follow most sports, but I'm an especially huge UFC fan.<br></br><br></br>
-                          <a href="https://store.steampowered.com/app/570/Dota_2/">Dota 2</a> is the greatest game ever created.<br></br><br></br>
+                          <a href="https://store.steampowered.com/app/570/Dota_2/">Dota 2</a> is the greatest game ever
+                          created.<br></br><br></br>
                           I geek out on watches and horror films.<br></br><br></br>
-                          I grew up playing classical clarinet. I'm taking jazz lessons and aim to join an ensemble one day.<br></br><br></br>
+                          I grew up playing classical clarinet. I'm taking jazz lessons and aim to join an ensemble one
+                          day.<br></br><br></br>
+                            </p>
                         </TabPane>
                         <TabPane tabId="tab3">
-                          I was born a lefty but was raised to be a righty. Nowadays I can't make up my mind.<br></br><br></br>
+                          <p className="text-info">
+                          I was born a lefty but was raised to be a righty. Nowadays I can't make up my
+                          mind.<br></br><br></br>
                           I used to build gaming PCs.<br></br><br></br>
-                          Hyon is a Korean surname which translates to "black, dark".<br></br>
+                          Hyon is a Korean surname which translates to "black, dark".<br></br><br></br>
+                            </p>
                         </TabPane>
                       </TabContent>
                     </CardBody>
@@ -236,19 +246,26 @@ class ProfilePage extends React.Component {
               </Row>
             </Container>
           </div>
-          <div className="section">
+          <div className="section"
+          ><img
+            alt="..."
+            className="path"
+            src={require("assets/img/path1.png")}
+          />
             <Container>
-              <Row className="justify-content-between">
-                <Col md="6">
+              <Row className="justify-content-center">
+                <Col md="8" lg="6">
                   <Row className="justify-content-between align-items-center">
-                    <UncontrolledCarousel items={carouselItems} />
+                    <UncontrolledCarousel items={carouselItems}/>
                   </Row>
                 </Col>
+              </Row>
+              <Row className="justify-content-center">
                 <Col md="5">
                   <h1 className="profile-title text-left">projects</h1>
-                  <h5 className="text-on-back">Secret</h5>
-                  <p className="profile-description text-left">
-                    Work in progress...
+                  <h5 className="text-on-back text-left">Secret</h5>
+                  <p className="text-info">
+                    Coming soon
                   </p>
                   <div className="btn-wrapper pt-3">
                     <Button
@@ -257,7 +274,7 @@ class ProfilePage extends React.Component {
                       href="#pablo"
                       onClick={e => e.preventDefault()}
                     >
-                      <i className="tim-icons icon-book-bookmark" /> Bookmark
+                      <i className="tim-icons icon-book-bookmark"/> Bookmark
                     </Button>
                     <Button
                       className="btn-simple"
@@ -265,7 +282,7 @@ class ProfilePage extends React.Component {
                       href="#pablo"
                       onClick={e => e.preventDefault()}
                     >
-                      <i className="tim-icons icon-bulb-63" /> Check it!
+                      <i className="tim-icons icon-bulb-63"/> Check it!
                     </Button>
                   </div>
                 </Col>
@@ -273,7 +290,7 @@ class ProfilePage extends React.Component {
             </Container>
           </div>
 
-          <Footer />
+          <Footer/>
         </div>
       </>
     );
