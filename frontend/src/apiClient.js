@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 var baseURI;
-if (process.env.REACT_APP_DEV) {
+if (process.env.REACT_APP_DEV === true) {
   baseURI= 'http://localhost:5000';
 } else {
   baseURI = process.env.REACT_APP_BASE_URL;
